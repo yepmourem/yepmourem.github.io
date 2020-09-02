@@ -90,8 +90,12 @@
 <ol>
 <li><p>如果是通过网线连接，已经自动分配ip地址</p>
 </li>
-<li><p>如果通过wifi连接，可以使用wpa工具：</p>
+<li><p>如果通过wifi连接，使用<code>iwctl</code>检测，使用wpa_supplicant连接：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wpa_passphrase [ ssid ] [ passphrase ] &gt; interconnect.conf</span><br><span class="line">wpa_supplicant -c interconnect.conf -i device &amp;</span><br></pre></td></tr></table></figure>
+<pre><code>  或者使用`iwd`:
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">iwd</span><br><span class="line">[iwd]<span class="comment"># help</span></span><br><span class="line">[iwd]<span class="comment"># device list</span></span><br><span class="line">[iwd]<span class="comment"># station device scan</span></span><br><span class="line">[iwd]<span class="comment"># station device get-networks</span></span><br><span class="line">[iwd]<span class="comment"># station device connect SSID</span></span><br></pre></td></tr></table></figure>
+  或者：
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iwctl --passphrase passphrase station device connect SSID</span><br></pre></td></tr></table></figure></code></pre>
 </li>
 </ol>
 </li>
@@ -179,7 +183,6 @@
 </li>
 <li><p>图形界面(kde)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pacman -S plasma <span class="comment">#kde桌面</span></span><br><span class="line">pacman -S kitty <span class="comment">#终端</span></span><br><span class="line">pacman -S dolphin <span class="comment">#文件管理器</span></span><br><span class="line">systemctl <span class="built_in">enable</span> sddm</span><br></pre></td></tr></table></figure>
-
 </li>
 </ol>
 
